@@ -16,4 +16,5 @@
     <string name="calculator">Calculator</string>
     <string name="enter_number">Enter number</string>
     <string name="result">Result</string>
+    <string name="menu_music_player">Music</string>
 </resources>

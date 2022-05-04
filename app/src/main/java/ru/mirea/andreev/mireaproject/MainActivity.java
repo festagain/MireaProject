@@ -1,5 +1,6 @@
 package ru.mirea.andreev.mireaproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_brouser,R.id.nav_music_player)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -62,4 +63,13 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    public void onClickPlayMusic(View view) {
+        startService(
+                new Intent(MainActivity.this, PlayerService.class));
+    }
+    public void onClickStopMusic(View view) {
+        stopService(
+                new Intent(MainActivity.this, PlayerService.class));
+    }
+
 }
